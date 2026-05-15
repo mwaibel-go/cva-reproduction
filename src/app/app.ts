@@ -8,14 +8,15 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
   template: `
     Selected control: {{ $any(selectedControl).id }}
     <app-cva [formControl]="selectedControl" />
-    <button (click)="switchControl()"> Switch control</button>
+    <button (click)="switchControl()"> Switch control</button><br>
+    Control values: [{{ formControls[0].value }}, {{ formControls[1].value }}]
   `,
 })
 export class App implements OnInit {
   protected selectedControl!: FormControl<string | null>
   private selectedIndex = 0
 
-  private formControls = [
+  protected formControls = [
     new FormControl('1'),
     new FormControl('2')
   ]
